@@ -2,8 +2,12 @@ import React from 'react'
 import WorkoutCard from '@/app/components/WorkoutCard'
 
 const getWorkouts=async ()=>{
-    const workout=await fetch('https://api.abcz.workers.dev/api/fitlog')
-    return workout.json()
+    const res=await fetch('https://api.api-store.workers.dev/api/fitlog')
+    if (!res.ok) {
+        console.error("API error:", res.status);
+        return [];
+    }
+    return res.json()
 }
 
 export default async function workout() {

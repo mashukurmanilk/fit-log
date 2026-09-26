@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/Navbar'
+import Image from 'next/image'
+import logo from '@/app/assets/logo.png'
+import { WorkoutProvider } from '@/app/context/WorkoutContext'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +27,28 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">
-        <Navbar/>
-        {children}
+      <body className="min-h-full flex flex-col bg-[#0f1014] text-white">
+        <WorkoutProvider>
+          <Navbar/>
+          <main className="flex-grow">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <footer className="border-t border-[#22242a] bg-[#111214] py-8 px-6 md:px-12 mt-auto">
+            <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Image src={logo} alt="FitLog Logo" height={20} className="w-auto" />
+                <span className="font-['Bebas_Neue'] text-xl font-black tracking-widest text-white mt-1 uppercase">FITLOG</span>
+              </div>
+              <p className="text-gray-500 text-sm">
+                © 2026 FitLog — Workout Library. Train hard, log honest.
+              </p>
+            </div>
+          </footer>
+        </WorkoutProvider>
       </body>
     </html>
   );
 }
+
