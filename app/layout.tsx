@@ -24,10 +24,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <div className='mx-3'>
+      <body className="min-h-full flex flex-col bg-black text-white">
         <Navbar/>
-      </div>
-      <body className="min-h-full flex flex-col bg-black text-white">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }

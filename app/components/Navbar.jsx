@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Navbar() {
   return (
-        <div className="navbar bg-black shadow-sm">
+        <div className="navbar bg-black shadow-sm border-b border-gray-800">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -17,23 +17,23 @@ export default function Navbar() {
                     <li><a>My Plan</a></li>
                 </ul>
                 </div>
-                <div className='btn btn-ghost text-xl rounded-full flex items-center ml-3'>
+                <div className='btn btn-ghost text-xl rounded-full flex items-center'>
                     <Image src={logo} alt='Logo'/>
                     {/* <a className="btn btn-ghost text-xl">FITLOG</a> */}
                     FITLOG
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                <li><a className='rounded-full'>Workouts</a></li>
-                
-                <li><a className='rounded-full'>My Plan</a></li>
+                <ul className="menu menu-horizontal px-1 gap-6">
+                    <li><a className='rounded-full'>Workouts</a></li>
+                    
+                    <li><a className='rounded-full'>My Plan</a></li>
                 </ul>
             </div>
-            <div className="navbar-end mr-3 flex items-center gap-6">
+            <div className="navbar-end mr-3 flex items-center gap-6 cursor-pointer">
                 <div className='flex items-center gap-3'>
                     <span className="text-base font-medium text-gray-100">Plan</span>
-                    <div className='flex items-center justify-center w-6 h-6 bg-[#cbfb45] text-black rounded-full font-bold'>
+                    <div className='flex items-center justify-center w-6 h-6 bg-[#b3f81d] text-black rounded-full font-bold'>
                         0
                     </div>
                 </div>
