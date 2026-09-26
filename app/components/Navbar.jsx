@@ -24,7 +24,7 @@ export default function Navbar() {
                 </div>
                 <Link href="/" className='btn btn-ghost text-xl rounded-full flex items-center hover:bg-[#131417]'>
                     <Image src={logo} alt='Logo' height={20} className="w-auto"/>
-                    <span className="font-['Bebas_Neue'] tracking-widest uppercase mt-1 text-white">FITLOG</span>
+                    <span className="font-['Impact'] font-normal tracking-widest uppercase mt-1 text-white">FITLOG</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

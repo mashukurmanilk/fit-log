@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           
-          {/* Footer */}
+          
           <footer className="border-t border-[#22242a] bg-[#111214] py-8 px-6 md:px-12 mt-auto">
             <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2">

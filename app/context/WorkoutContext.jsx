@@ -8,8 +8,8 @@ export function WorkoutProvider({ children }) {
   const [planWorkouts, setPlanWorkouts] = useState([]);
   const [savedWorkouts, setSavedWorkouts] = useState([]);
   const [toast, setToast] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false); // Track hydration for loading state
 
- 
   useEffect(() => {
     try {
       const storedPlan = localStorage.getItem('fitlog_plan');
@@ -19,15 +19,15 @@ export function WorkoutProvider({ children }) {
     } catch (e) {
       console.error("Could not load from localStorage", e);
     }
+    setIsLoaded(true); // Hydration complete
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('fitlog_plan', JSON.stringify(planWorkouts));
-  }, [planWorkouts]);
-
-  useEffect(() => {
-    localStorage.setItem('fitlog_saved', JSON.stringify(savedWorkouts));
-  }, [savedWorkouts]);
+    if (isLoaded) {
+      localStorage.setItem('fitlog_plan', JSON.stringify(planWorkouts));
+      localStorage.setItem('fitlog_saved', JSON.stringify(savedWorkouts));
+    }
+  }, [planWorkouts, savedWorkouts, isLoaded]);
 
   const showToast = (message) => {
     setToast({ message });
@@ -52,8 +52,26 @@ export function WorkoutProvider({ children }) {
     }
   };
 
+  const removeFromPlan = (id) => {
+    setPlanWorkouts(prev => prev.filter(w => w.id !== id));
+    showToast("Removed from plan.");
+  };
+
+  const removeFromSaved = (id) => {
+    setSavedWorkouts(prev => prev.filter(w => w.id !== id));
+    showToast("Removed from saved.");
+  };
+
   return (
-    <WorkoutContext.Provider value={{ planWorkouts, savedWorkouts, addToPlan, saveForLater }}>
+    <WorkoutContext.Provider value={{ 
+      planWorkouts, 
+      savedWorkouts, 
+      addToPlan, 
+      saveForLater,
+      removeFromPlan,
+      removeFromSaved,
+      isLoaded 
+    }}>
       {children}
       {toast && (
         <div className="toast toast-bottom toast-center z-50">

@@ -16,7 +16,7 @@ export default async function workout() {
   return (
     <div className='py-12 flex flex-col mx-4 md:mx-10'>
         <div className="mb-8">
-            <h1 className="font-['Impact'] font-black text-4xl lg:text-5xl text-white tracking-tight uppercase">
+            <h1 className="font-['Impact'] font-normal text-4xl lg:text-5xl text-white tracking-tight uppercase">
                 THE LIBRARY
             </h1>
             <div className="text-gray-400 mt-2 text-[17px]">
