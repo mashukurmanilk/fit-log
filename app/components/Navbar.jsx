@@ -10,7 +10,6 @@ export default function Navbar() {
   const { planWorkouts, savedWorkouts } = useWorkoutContext();
   const pathname = usePathname();
 
-  // Check if the current route matches the button
   const isHome = pathname === '/';
   const isMyPlan = pathname === '/my-plan';
 

@@ -8,8 +8,7 @@ export function WorkoutProvider({ children }) {
   const [planWorkouts, setPlanWorkouts] = useState([]);
   const [savedWorkouts, setSavedWorkouts] = useState([]);
   const [toast, setToast] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false); // Track hydration for loading state
-
+  const [isLoaded, setIsLoaded] = useState(false); 
   useEffect(() => {
     try {
       const storedPlan = localStorage.getItem('fitlog_plan');
@@ -19,7 +18,7 @@ export function WorkoutProvider({ children }) {
     } catch (e) {
       console.error("Could not load from localStorage", e);
     }
-    setIsLoaded(true); // Hydration complete
+    setIsLoaded(true); 
   }, []);
 
   useEffect(() => {

@@ -6,14 +6,12 @@ export default function Banner() {
   return (
     <section className="mx-4 my-8">
       <div className="bg-[#131417] border border-[#22242a] rounded-2xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
-        
-        {/* Left Text Content */}
+
         <div className="flex flex-col gap-6 max-w-2xl">
             <div className="text-[13px] font-bold text-[#cbfb45] tracking-widest uppercase">
                 Workout Library
             </div>
             
-            {/* Notice the fixed font-['Bebas_Neue'] and max-w-2xl below */}
             <h1 className="text-4xl md:text-5xl lg:text-[70px] font-['Impact'] max-w-2xl font-normal text-white uppercase leading-[0.95] tracking-tight">
                 Train with intent. Log<br />every set.
             </h1>
