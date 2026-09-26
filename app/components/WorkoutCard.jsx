@@ -9,6 +9,8 @@ export default function WorkoutCard({ workout }) {
     <Link href={`/workouts/${workout.id}`} className="card bg-[#131417] border border-[#22242a] hover:border-gray-600 transition-colors cursor-pointer overflow-hidden rounded-[20px] w-full shadow-lg">
       <figure className="relative h-56 w-full bg-[#0a0a0c]">
         <Image
+          width={500}
+          height={500}
           src={workout.image}
           alt={workout.name}
           className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
@@ -18,13 +20,13 @@ export default function WorkoutCard({ workout }) {
       <div className="card-body p-6">
         <div className="flex flex-wrap gap-2 mb-2">
           {workout.muscleGroups?.map((group, idx) => (
-            <span key={idx} className="text-[11px] font-bold text-[#cbfb45] uppercase tracking-wider bg-[#cbfb45]/10 px-2.5 py-1 rounded-sm">
+            <span key={idx} className="text-[11px] font-bold text-black uppercase tracking-wider bg-[#cbfb45] px-2.5 py-1 rounded-sm">
               {group}
             </span>
           ))}
         </div>
         
-        <h2 className="text-2xl font-black text-white uppercase font-['Impact'] tracking-wide leading-none mb-3">
+        <h2 className="text-2xl font-normal text-white uppercase font-['Impact'] tracking-wide leading-none mb-3">
           {workout.name}
         </h2>
         
